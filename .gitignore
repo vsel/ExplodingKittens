@@ -1,3 +1,5 @@
 .venv/
 .idea/
+.vagga/
+.jupyter/
 .python-version

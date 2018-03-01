@@ -1,0 +1,25 @@
+containers:
+  ml:
+    setup:
+    - !UbuntuRelease {codename: xenial}
+    - !UbuntuUniverse
+    - !PipConfig
+      dependencies: true
+    - !Py3Requirements "requirements.txt"
+    - !EnsureDir /work/notes
+
+commands:
+  notebook: !Command
+    description: Run jupyter notebooks
+    container: ml
+    environ:
+      JUPYTER_CONFIG_DIR: /work/.jupyter
+      JUPYTER_DATA_DIR: /work/.jupyter/data
+      JUPYTER_RUNTIME_DIR: /work/.jupyter/runtime
+      IPYTHONDIR: /work/.ipython
+    run:
+    - jupyter-notebook
+    - --notebook-dir=/work/notes
+    - --no-browser
+    - --allow-root
+
