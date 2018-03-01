@@ -3,3 +3,5 @@
 .vagga/
 .jupyter/
 .python-version
+.DS_Store
+.ipynb_checkpoints/
