@@ -40,7 +40,7 @@ def find_most_revenue(ostavshiesya_list, tazik, bonus_for_start_in_time,step):
 #         all_revenue_by_tazik = {}
 #         for id_, ride in enumerate(ostavshiesya_list):
 #             all_revenue_by_tazik.
-with open('./hashcode2018/e_high_bonus.in') as file:
+with open('./hashcode2018/d_metropolis.in') as file:
     setup_row = file.readline()
     (row_on_grid,
      columns_on_grid,
@@ -80,7 +80,9 @@ step = 0
 while step<steps:
     for id_, tazik in enumerate(all_taziks):
         if tazik[2] == 0:
-            if step%2 == 0:
+            import random
+            test = random.choice([1,0])
+            if test == 0:
                 rides = find_most_revenue(rides, tazik,bonus_for_start_in_time,step)
             else:
                 rides = find_most_blizkiy(rides, tazik)
@@ -89,7 +91,7 @@ while step<steps:
     step+=1
 #print(all_taziks)
 list_of_lists = [x[3] for x in all_taziks]
-with open('./hashcode2018/e_high_bonus3.out', 'a') as out_file:
+with open('./hashcode2018/d_metropolis4.out', 'a') as out_file:
     vehicle_id = 0
     list_gen = (x for x in list_of_lists)
     while vehicle_id < vehicles_on_fleet:

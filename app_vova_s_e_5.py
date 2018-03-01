@@ -80,7 +80,7 @@ step = 0
 while step<steps:
     for id_, tazik in enumerate(all_taziks):
         if tazik[2] == 0:
-            if step%2 == 0:
+            if step%2 == 1:
                 rides = find_most_revenue(rides, tazik,bonus_for_start_in_time,step)
             else:
                 rides = find_most_blizkiy(rides, tazik)
@@ -89,7 +89,7 @@ while step<steps:
     step+=1
 #print(all_taziks)
 list_of_lists = [x[3] for x in all_taziks]
-with open('./hashcode2018/e_high_bonus3.out', 'a') as out_file:
+with open('./hashcode2018/e_high_bonus5.out', 'a') as out_file:
     vehicle_id = 0
     list_gen = (x for x in list_of_lists)
     while vehicle_id < vehicles_on_fleet:

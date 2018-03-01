@@ -85,7 +85,7 @@ while step<steps:
             if test == 0:
                 rides = find_most_revenue(rides, tazik,bonus_for_start_in_time,step)
             else:
-                rides = find_most_blizkiy(ostavshiesya_list, tazik)
+                rides = find_most_blizkiy(rides, tazik)
         else:
             tazik[2] -= 1 
     step+=1

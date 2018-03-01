@@ -2,13 +2,27 @@
 # coding: utf-8
 
 from app_max import get_revenue
+from collections import OrderedDict
 
 def find_most_blizkiy(ostavshiesya_list, tazik):
     if len(ostavshiesya_list)>0:
-        rides_list = {}
+        rides_list_blizk = {}
+        rides_list_dist = {}
         for id_, ride in enumerate(ostavshiesya_list):
-            rides_list[id_] = abs(tazik[0]-ride['start'][0])+abs(tazik[1]-ride['start'][1])
-        take_ride_id = min(rides_list, key=rides_list.get)
+            rides_list_blizk[id_] = (abs(tazik[0]-ride['start'][0])+abs(tazik[1]-ride['start'][1]),ride['']
+            rides_list_dist[id_] = ride['distance']
+        rides_list_blizk_sorted = OrderedDict(sorted(rides_list_blizk.items(), key=itemgetter(1)))
+        rides_list_dist_sorted = OrderedDict(sorted(rides_list_dist.items(), key=itemgetter(1)))
+        for id1_ in rides_list_blizk_sorted.keys():
+            step = 50
+            step_id = 0
+            list_keys = []
+            while step_id < step:
+                rides_list_dist_sorted
+                list_keys.append(id1_)
+                step_id += 1
+            if id1_
+        #take_ride_id = min(rides_list, key=rides_list.get)
         tazik[0] = ostavshiesya_list[take_ride_id]['finish'][0]
         tazik[1] =ostavshiesya_list[take_ride_id]['finish'][1]
         tazik[2] = rides_list[take_ride_id]
@@ -80,7 +94,7 @@ step = 0
 while step<steps:
     for id_, tazik in enumerate(all_taziks):
         if tazik[2] == 0:
-            if step%2 == 0:
+            if step%2 == 1:
                 rides = find_most_revenue(rides, tazik,bonus_for_start_in_time,step)
             else:
                 rides = find_most_blizkiy(rides, tazik)
@@ -89,7 +103,7 @@ while step<steps:
     step+=1
 #print(all_taziks)
 list_of_lists = [x[3] for x in all_taziks]
-with open('./hashcode2018/e_high_bonus3.out', 'a') as out_file:
+with open('./hashcode2018/e_high_bonus5.out', 'a') as out_file:
     vehicle_id = 0
     list_gen = (x for x in list_of_lists)
     while vehicle_id < vehicles_on_fleet:
